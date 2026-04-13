@@ -13,6 +13,27 @@
     <a href="concepts.html">Networking Concepts</a>
   </nav>
 
-  <p>Thank you for visiting! Have a good day :) </p>
+  <p>Thank you for visiting! Have a good day :) </p> 
+
+  <h2>Leave Feedback</h2>
+  <input type="text" id="feedback" placeholder="Type your feedback">
+  <button onclick="showFeedback()">Submit</button>
+  <p id="output"></p>
+
+  <script>
+  function sanitizeInput(input) {
+      return input
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+  }
+
+  function showFeedback() {
+      let text = document.getElementById("feedback").value;
+      let safeText = sanitizeInput(text);
+      document.getElementById("output").innerHTML = safeText;
+  }
+  </script>
+
 </body>
 </html>
+
